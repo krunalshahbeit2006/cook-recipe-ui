@@ -1,0 +1,41 @@
+<div *ngIf="recipe">
+  <h2>{{recipe.name | uppercase}} Recipe Details</h2>
+  <!--<div><span>id: </span>{{recipe.id}}</div>
+  <div>
+    <label>name:
+      <input [(ngModel)]="recipe.name" placeholder="name"/>
+    </label>
+  </div>-->
+  <table>
+    <tr>
+      <th>Name</th>
+      <th>Created On</th>
+      <th>Image</th>
+      <th>Dish Type</th>
+      <th># People Suitable For</th>
+      <th>Ingredients</th>
+      <th>Cooking Instructions</th>
+    </tr>
+    <tr>
+      <td>{{recipe.name}}</td>
+      <td>{{recipe.recipeDetail.dateOfCreation | date: 'dd/MM/yyyy'}}</td>
+      <td><img src="../assets/images/recipes/{{recipe.id}}.jpg"></td>
+      <td>{{recipe.recipeDetail.typeOfDish}}</td>
+      <td>{{recipe.recipeDetail.numberOfPeopleDishSuitableFor}}</td>
+      <td>
+        <ul>
+          <li *ngFor="let ingredient of recipe.recipeDetail.listOfIngredients">
+            {{ingredient}}
+          </li>
+        </ul>
+      </td>
+      <td>
+        <ul>
+          <li *ngFor="let cookingInstruction of recipe.recipeDetail.cookingInstructions">
+            {{cookingInstruction}}
+          </li>
+        </ul>
+      </td>
+    </tr>
+  </table>
+</div>

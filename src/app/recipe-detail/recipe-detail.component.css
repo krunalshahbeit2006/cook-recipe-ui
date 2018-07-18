@@ -1,0 +1,36 @@
+div {
+    width: 75%;
+    margin: -250px 0px 0px 275px;
+}
+
+table {
+    border: 1px solid black;
+    border-collapse: collapse;
+    border-spacing: 2px;
+    width: 100%;
+}
+
+table tr {
+    border: 1px solid black;
+    border-collapse: collapse;
+    margin: .5em;
+}
+
+table tr th, td {
+    border: 1px solid black;
+    border-collapse: collapse;
+    margin: 1em;
+}
+
+ul li {
+    position: relative;
+    top: 0;
+    left: 0;
+}
+
+img {
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    padding: 5px;
+    width: 150px;
+}
