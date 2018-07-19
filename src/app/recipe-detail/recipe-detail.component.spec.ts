@@ -38,6 +38,6 @@ describe('RecipeDetailComponent', () => {
   }));
   it('should render title in a h2 tag', async(() => {
     const compiled = fixture.debugElement.nativeElement;
-    expect(compiled.querySelector('h2').textContent).toContain('Recipe Details');
+    expect(compiled.querySelector('h2').textContent).toEqual((component.recipe.name).toUpperCase().concat(' Recipe Details'));
   }));
 });
