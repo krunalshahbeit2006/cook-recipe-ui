@@ -25,6 +25,8 @@ export class RecipesComponent implements OnInit {
 
   onSelect(recipe: Recipe): void {
     this.selectedRecipe = recipe;
+
+    console.log("selectedRecipe: ".concat(JSON.stringify(this.selectedRecipe)));
   }
 
   getRecipes(): void {

@@ -35,17 +35,22 @@ export class RecipeService {
 
     httpRequest = this.http.get<Recipe[]>(this.recipesUrl, httpHeaders);
     httpRequest.subscribe(
-        response => response = response,
-        error => error = error/*,
-        console.log("response: ", response),
-        console.error("error: ", error)*/);
+        response => {
+            console.log("response: ", response);
+        },
+        error => {
+            console.error("error: ", error);
+        });
 
       httpResponse = httpRequest.pipe(tap(recipes => {
+          console.log("recipes: ", recipes);
           const msg = (recipes !== null) ? `fetched` : `did not find`;
           this.log(`recipes ${msg}`);
-          console.log("recipes: ", recipes);
+        },
+        error => {
+          console.error("error: ", error);
         }
-      ), catchError(this.handleError('listAllRecipes', []))
+      ), catchError(this.handleError<Recipe[]>('getRecipes', []))
     );
     /*httpResponse = null;
     return httpResponse !== null ? httpResponse : of(RECIPES);*/
@@ -62,7 +67,7 @@ export class RecipeService {
     return (error: any): Observable<T> => {
 
       // TODO: send the error to remote logging infrastructure
-      console.error("error: {}", error); // log to console instead
+      console.error("error: ", error); // log to console instead
 
       // TODO: better job of transforming error for user consumption
       this.log(`${operation} failed: ${error.message}`);
