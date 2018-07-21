@@ -1,23 +1,11 @@
-export enum IndicatorType {
-  Veg = "Vegetarian",
-  NonVeg = "Non-vegetarian",
-}
-
 export class RecipeDetail {
+  id: number;
   dateOfCreation: Date;
-  imageSrcUrl: string;
-  typeOfDish: IndicatorType;
   numberOfPeopleDishSuitableFor: number;
-  listOfIngredients: Array<String>;
-  cookingInstructions: Array<String>;
 
-  constructor(dateOfCreation: Date, imageSrcUrl: string, typeOfDish: IndicatorType,
-              numberOfPeopleDishSuitableFor: number, listOfIngredients: Array<String>, cookingInstructions: Array<String>) {
+  constructor(id: number, dateOfCreation: Date, numberOfPeopleDishSuitableFor: number) {
+    this.id = id;
     this.dateOfCreation = dateOfCreation;
-    this.imageSrcUrl = imageSrcUrl;
-    this.typeOfDish = typeOfDish;
     this.numberOfPeopleDishSuitableFor = numberOfPeopleDishSuitableFor;
-    this.listOfIngredients = listOfIngredients;
-    this.cookingInstructions = cookingInstructions;
   }
 }
